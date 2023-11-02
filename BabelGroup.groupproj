@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{A090BE4C-ED99-4651-AB1B-EA67130E012A}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Babelizor\Babelizor.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Demos\Basic\BasicDemo.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Babelizor">
+        <MSBuild Projects="Babelizor\Babelizor.dproj"/>
+    </Target>
+    <Target Name="Babelizor:Clean">
+        <MSBuild Projects="Babelizor\Babelizor.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Babelizor:Make">
+        <MSBuild Projects="Babelizor\Babelizor.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="BasicDemo">
+        <MSBuild Projects="Demos\Basic\BasicDemo.dproj"/>
+    </Target>
+    <Target Name="BasicDemo:Clean">
+        <MSBuild Projects="Demos\Basic\BasicDemo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="BasicDemo:Make">
+        <MSBuild Projects="Demos\Basic\BasicDemo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Babelizor;BasicDemo"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Babelizor:Clean;BasicDemo:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Babelizor:Make;BasicDemo:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
