@@ -160,8 +160,6 @@ object MainView: TMainView
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitWidth = 1434
-    ExplicitHeight = 686
     object TextsToolBar: TToolBar
       AlignWithMargins = True
       Left = 0
@@ -177,7 +175,6 @@ object MainView: TMainView
       ParentShowHint = False
       ShowHint = True
       TabOrder = 0
-      ExplicitWidth = 1434
       object CodesComboBox: TComboBox
         AlignWithMargins = True
         Left = 0
@@ -256,8 +253,6 @@ object MainView: TMainView
       FixedCols = 0
       Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goDrawFocusSelected, goColSizing, goEditing, goAlwaysShowEditor]
       TabOrder = 1
-      ExplicitWidth = 1434
-      ExplicitHeight = 661
     end
   end
   object MainMenu: TMainMenu

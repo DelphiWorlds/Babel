@@ -124,11 +124,10 @@ uses
   DelphiAST, DelphiAST.Consts,
   DW.OSDevice, DW.Types.Helpers, DW.Vcl.DialogService, DW.Classes.Helpers, DW.IOUtils.Helpers,
   Babel.Persistence,
-  BZ.View.AddTexts;
+  BZ.View.AddTexts, BZ.Options;
 
 const
   cGoogleTranslateURLTemplate = 'https://translation.googleapis.com/language/translate/v2?key=%s';
-  cGoogleTranslateAPIKey = 'AIzaSyA3K6KKMG74dkqPdvn5TCtWZzebJgdW_n8'; // AIzaSyDiPVYE-gzEJEfB0ldrZXOEPM0n7e80r0g
 
 type
   TBabelAST = class(TPasSyntaxTreeBuilder)
@@ -235,7 +234,7 @@ begin
   try
     LHTTP := THTTPClient.Create;
     try
-      LHTTPResponse := LHTTP.Post(Format(cGoogleTranslateURLTemplate, [cGoogleTranslateAPIKey]), LStream);
+      LHTTPResponse := LHTTP.Post(Format(cGoogleTranslateURLTemplate, [Options.TranslateAPIKey]), LStream);
       if LHTTPResponse.StatusCode = 200 then
         LResponse := LHTTPResponse.ContentAsString;
     finally
