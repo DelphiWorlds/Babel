@@ -14,7 +14,19 @@ Babel is used for translations in the [Codex](https://github.com/DelphiWorlds/Co
 ### Create definition files
 
 Use Babelizor to scan your project files for `.pas` and `.dfm` and/or `.fmx` files to create a definition file, and add supported languages. Babel will scan for Caption, Text, Hint and Title properties in form definition files and for `resourcestring` values in `.pas` files.
-If you have an account for the Google Translate API, use the instant translation tool to create translations for your text.
+If you have an account for the Google Translate API, use the instant translation tool to create translations for your text. 
+
+If using instant translastion, Babelizor expects a file called `options.json` in a folder called `Babelizor` under `Public Documents` with content like this:
+
+```json
+  {
+    "TranslateAPIKey" : "AIzaSyAzXXXXXXXXXX7u7pcQ"
+  }
+```
+
+where you would replace `AIzaSyAzXXXXXXXXXX7u7pcQ` with your API key.
+
+This is a brief tutorial on how to [create a project, enable the API and get a key](https://www.youtube.com/watch?v=1wcE-DfqNtU&t=37s).
 
 ### Using the definition file in your app
 
